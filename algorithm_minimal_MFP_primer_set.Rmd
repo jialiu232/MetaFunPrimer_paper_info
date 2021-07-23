@@ -1,0 +1,14 @@
+## Algorithm to determine the minimal output primer set by MetaFunPrimer. 
+
+The minimal primer set is determined by the following algorithm: 
+
+1. Create an ordered dictionary L whose keys are the primer sets and whose values are the target sequences amplified by each primer set. Rank the elements in this dictionary in descending order by the number of sequences amplified by each primer set. Thus, the first element of L is the primer pair that amplifies the most target sequences. 
+
+2. Add the first primer set in L to the final primer set F, then remove that primer set from L.
+
+3. Update each element in L by removing any target sequences already amplified by a primer set in F. 
+
+4. Reorder the primer sets in L by the updated number of target sequences that they amplify. 
+
+5. Repeat steps 2 and 3 until all genes of interest are amplified by some primer set in F.
+

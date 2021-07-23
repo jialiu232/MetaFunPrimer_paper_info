@@ -1,0 +1,18 @@
+## Calculation of first-order difference. 
+
+The first-order difference gives an approximation of the "elbow" of a graph, the point at which the marginal utility derived from going further along the curve begins to drop off. A common example of this is the variance explained by number of components included graph in principle component analysis. MetaFunPrimer uses a modified approach to finding this point in the graph based on the first-order difference. 
+	The first step in the MetaFunPrimer pipeline is to cluster the input sequences over a range of similarity thresholds. Let t∈[0.80,0.81,0.82,…,1] and let c(t) be the number of clusters found by CD-HIT at similarity threshold t. Fig. 2 shows a plot of these values for the amoA-AOB genes used in this paper. Then, for each t, we calculate the slope of the secant line through c(t) and c(1) via the formula
+
+f_t^+=  (c(1)-c(t))/(1-t)  
+
+Similarly, we calculate the slope of the secant line through c(t) and c(0.80):
+
+f_t^-=  (c(t)-c(0.80))/(t-0.80)  
+
+We then calculate the first-order difference at t by
+
+fod(t)=f_t^+-f_t^-
+
+After calculating fod(t) for all t, MetaFunPrimer uses the value of t that maximizes fod(t) and in the future steps of the pipeline.
+	While this value t is a theoretically optimal value in terms of marginal utility, it is just a suggestion, and the user may have reason to choose a different similarity threshold. In that case, the user can inspect cluster_counts.tsv, the output of the clustering step, in order to choose their own similarity threshold.
+
