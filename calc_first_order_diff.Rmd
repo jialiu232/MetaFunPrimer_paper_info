@@ -16,3 +16,8 @@ fod(t)=f_t^+-f_t^-
 After calculating fod(t) for all t, MetaFunPrimer uses the value of t that maximizes fod(t) and in the future steps of the pipeline.
 	While this value t is a theoretically optimal value in terms of marginal utility, it is just a suggestion, and the user may have reason to choose a different similarity threshold. In that case, the user can inspect cluster_counts.tsv, the output of the clustering step, in order to choose their own similarity threshold.
 
+
+
+## Reference:
+
+Lax PD, Terrell MS. 2014. Calculus with applications, 2nd ed. Springer Science & Business Media, New York, NY.
